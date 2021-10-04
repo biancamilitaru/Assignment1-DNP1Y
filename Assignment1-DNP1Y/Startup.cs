@@ -40,7 +40,7 @@ namespace Assignment1_DNP1Y
             services.AddAuthorization(options =>
             {
                
-                options.AddPolicy("MustBeVIA", a => a.RequireAuthenticatedUser().RequireClaim("Password","1"));
+                options.AddPolicy("MustBeVIA", a => a.RequireAuthenticatedUser().RequireClaim("Domain","via.dk"));
             });
         }
 

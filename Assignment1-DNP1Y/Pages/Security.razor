@@ -1,0 +1,16 @@
+﻿@page "/Security"
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<h3>Security</h3>
+<AuthorizeView>
+    <h3>Hello @context.User.Identity.Name</h3>
+</AuthorizeView>
+
+<AuthorizeView Policy="MustBeVIA">
+    <p>This text is available for you because you are logged in</p>
+    <p>You are able to add Customers</p>
+</AuthorizeView>
+
+@code {
+    
+}

@@ -16,11 +16,13 @@ namespace Assignment1_DNP1Y.Data.Impl
                 new User
                 {
                     UserName = "biancaMilitaru",
+                    Domain = "via.dk",
                     Password = "12345"
                 },
                 new User()
                 {
                     UserName = "milanTolnai",
+                    Domain = "milan@hotmail.com",
                     Password = "54321"
                 }
             }.ToList();

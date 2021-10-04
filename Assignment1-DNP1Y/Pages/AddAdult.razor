@@ -1,4 +1,5 @@
 ﻿@page "/AddAdult"
+@attribute [Authorize(Policy = "MustBeVIA")]
 @using Microsoft.AspNetCore.Components
 @using Models
 @using Assignment1_DNP1Y.Data
