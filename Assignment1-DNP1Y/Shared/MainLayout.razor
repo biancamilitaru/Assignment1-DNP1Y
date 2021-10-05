@@ -1,5 +1,7 @@
+@using LoginComponent
 @inherits LayoutComponentBase
 @inject NavigationManager NavigationManager
+
 
 <div class="page">
     <div class="sidebar">
@@ -9,6 +11,7 @@
     <div class="main">
         <div class="top-row px-4">
             <Login/>
+            
             <a href="https://9gag.com/gag/aYo8O0q" target="_blank">About</a>
         </div>
 
@@ -29,7 +32,7 @@
         var user = (await AuthStat).User;
         if (!user.Identity.IsAuthenticated)
         {
-            NavigationManager.NavigateTo($"/Login");
+            NavigationManager.NavigateTo($"/");
         }
     }
 
