@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Models;
@@ -33,9 +34,12 @@ namespace Assignment1_DNP1Y.Data
 
         public void AddAdult(Adult adult)
         {
+            int max = adults.Max(adult => adult.Id);
+            adult.Id = (++max);
             adults.Add(adult);
             string adultsAsJson = JsonSerializer.Serialize(adult);
-            File.WriteAllText(adultsFile, adultsAsJson);
+            string alladult = GetAdults()+ adultsAsJson;
+            File.WriteAllText(adultsFile, alladult);
         }
     }
 }
