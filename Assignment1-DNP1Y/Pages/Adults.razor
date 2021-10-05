@@ -5,12 +5,16 @@
 
 <h3>Adults</h3>
 
-@if (adults == null)
+<p>
+    Filter adults by name: <input type="text" @oninput="@((arg) => Filter(arg))" style="width: 500px"/>
+</p>
+
+@if (adultsToShow == null)
 {
     <p>
         <em>Loading...</em>
     </p>
-} else if (!adults.Any())
+} else if (!adultsToShow.Any())
 {
     <p>
         <em>No adults item exist. Please add some</em>
@@ -33,7 +37,7 @@ else
         </tr>
         </thead>
         <tbody>
-        @foreach (Adult item in adults)
+        @foreach (Adult item in adultsToShow)
         {
             <tr>
                 <td>@item.FirstName</td>
@@ -52,10 +56,26 @@ else
 }
 
 @code {
-    private IList<Adult> adults;
+    private IList<Adult> allAdults;
+    private IList<Adult> adultsToShow;
 
     protected override async Task OnInitializedAsync()
     {
-        adults = AdultsData.GetAdults();
+        allAdults = AdultsData.GetAdults();
+        adultsToShow = allAdults;
+    }
+
+    private void Filter(ChangeEventArgs changeEventArgs)
+    {
+        string filterByName = changeEventArgs.Value.ToString();
+        if (filterByName != "")
+        {
+            adultsToShow = allAdults.Where(t => t.FirstName.ToLower().StartsWith(filterByName.ToLower()) 
+                                                || t.LastName.ToLower().StartsWith(filterByName.ToLower())).ToList();
+        }
+        else
+        {
+            adultsToShow = allAdults;
+        }
     }
 }
