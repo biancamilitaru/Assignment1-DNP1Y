@@ -2,8 +2,7 @@
 @attribute [Authorize(Policy = "MustBeVIA")]
 @using Microsoft.AspNetCore.Components
 @using Models
-@using Assignment1_DNP1Y.Data
-@inject IAdultsData AdultsData
+@inject FileContext FileContext
 @inject NavigationManager NavigationManager
 <h3>Add Adult</h3>
 
@@ -45,7 +44,9 @@
 @code {
     public void AddAdult1()
     {
-     AdultsData.AddAdult(addNewAdultItem);
+        IList<Adult> adults = FileContext.Adults;
+        adults.Add(addNewAdultItem);
+        FileContext.SaveChanges();
         NavigationManager.NavigateTo("/Adults");
     }
 

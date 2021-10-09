@@ -34,7 +34,7 @@ namespace Assignment1_DNP1Y
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<IAdultsData, AdultsJSONData>();
+            services.AddSingleton<FileContext>();
             services.AddScoped<IUserInterface, InMemoryUserService>();
             services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
             services.AddAuthorization(options =>

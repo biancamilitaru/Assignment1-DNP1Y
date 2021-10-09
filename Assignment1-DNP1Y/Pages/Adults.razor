@@ -1,12 +1,12 @@
 @page "/Adults"
-@using Data
 @using Models
-@inject IAdultsData AdultsData
+@using System.Text.Json
+@inject FileContext FileContext
 
 <h3>Adults</h3>
 
 <p>
-    Filter adults by name: <input type="text" @oninput="@((arg) => Filter(arg))" style="width: 500px"/>
+    Filter adults by name: <input type="text" @oninput="@((arg) => Filter(arg))" style="width: 100px"/>
 </p>
 
 @if (adultsToShow == null)
@@ -38,20 +38,20 @@ else
         </tr>
         </thead>
         <tbody>
-        @foreach (Adult item in adultsToShow)
+        @foreach(Adult item in adultsToShow)
         {
-            <tr>
-                <td>@item.Id</td>
-                <td>@item.FirstName</td>
-                <td>@item.LastName</td>
-                <td>@item.JobTitle.JobTitle</td>
-                <td>@item.HairColor</td>
-                <td>@item.EyeColor</td>
-                <td>@item.Age</td>
-                <td>@item.Weight</td>
-                <td>@item.Height</td>
-                <td>@item.Sex</td>
-            </tr>
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>
+            <td>@(item.JobTitle == null? "unemployed" : item.JobTitle.JobTitle )</td>
+            <td>@item.HairColor</td>
+            <td>@item.EyeColor</td>
+            <td>@item.Age</td>
+            <td>@item.Weight</td>
+            <td>@item.Height</td>
+            <td>@item.Sex</td>
+        </tr>
         }
         </tbody>
     </table>
@@ -63,8 +63,13 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        allAdults = AdultsData.GetAdults();
+        allAdults = FileContext.Adults;
         adultsToShow = allAdults;
+        Console.WriteLine("Print list starts here: ");
+        Console.WriteLine(allAdults.Count);
+        Console.WriteLine(allAdults[0]);
+        Console.WriteLine(allAdults[0].FirstName);
+        Console.WriteLine(allAdults[0].Age);
     }
 
     private void Filter(ChangeEventArgs changeEventArgs)
