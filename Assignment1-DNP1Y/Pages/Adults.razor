@@ -1,16 +1,20 @@
 @page "/Adults"
-@using Data
 @using Models
-@inject IAdultsData AdultsData
+@using System.Text.Json
+@inject FileContext FileContext
 
 <h3>Adults</h3>
 
-@if (adults == null)
+<p>
+    Filter adults by name: <input type="text" @oninput="@((arg) => Filter(arg))" style="width: 100px"/>
+</p>
+
+@if (adultsToShow == null)
 {
     <p>
         <em>Loading...</em>
     </p>
-} else if (!adults.Any())
+} else if (!adultsToShow.Any())
 {
     <p>
         <em>No adults item exist. Please add some</em>
@@ -34,30 +38,51 @@ else
         </tr>
         </thead>
         <tbody>
-        @foreach (Adult item in adults)
+        @foreach(Adult item in adultsToShow)
         {
-            <tr>
-                <td>@item.Id</td>
-                <td>@item.FirstName</td>
-                <td>@item.LastName</td>
-                <td>@item.JobTitle.JobTitle</td>
-                <td>@item.HairColor</td>
-                <td>@item.EyeColor</td>
-                <td>@item.Age</td>
-                <td>@item.Weight</td>
-                <td>@item.Height</td>
-                <td>@item.Sex</td>
-            </tr>
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>
+            <td>@(item.JobTitle == null? "unemployed" : item.JobTitle.JobTitle )</td>
+            <td>@item.HairColor</td>
+            <td>@item.EyeColor</td>
+            <td>@item.Age</td>
+            <td>@item.Weight</td>
+            <td>@item.Height</td>
+            <td>@item.Sex</td>
+        </tr>
         }
         </tbody>
     </table>
 }
 
 @code {
-    private IList<Adult> adults;
+    private IList<Adult> allAdults;
+    private IList<Adult> adultsToShow;
 
     protected override async Task OnInitializedAsync()
     {
-        adults = AdultsData.GetAdults();
+        allAdults = FileContext.Adults;
+        adultsToShow = allAdults;
+        Console.WriteLine("Print list starts here: ");
+        Console.WriteLine(allAdults.Count);
+        Console.WriteLine(allAdults[0]);
+        Console.WriteLine(allAdults[0].FirstName);
+        Console.WriteLine(allAdults[0].Age);
+    }
+
+    private void Filter(ChangeEventArgs changeEventArgs)
+    {
+        string filterByName = changeEventArgs.Value.ToString();
+        if (filterByName != "")
+        {
+            adultsToShow = allAdults.Where(t => t.FirstName.ToLower().StartsWith(filterByName.ToLower()) 
+                                                || t.LastName.ToLower().StartsWith(filterByName.ToLower())).ToList();
+        }
+        else
+        {
+            adultsToShow = allAdults;
+        }
     }
 }

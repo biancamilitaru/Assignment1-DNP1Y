@@ -2,13 +2,12 @@
 @attribute [Authorize(Policy = "MustBeVIA")]
 @using Microsoft.AspNetCore.Components
 @using Models
-@using Assignment1_DNP1Y.Data
-@inject IAdultsData AdultsData
+@inject FileContext FileContext
 @inject NavigationManager NavigationManager
 <h3>Add Adult</h3>
 
 
-<EditForm Model="@addNewAdultItem" OnValidSubmit="@AddAdult1">
+<EditForm Model="@addNewAdultItem" OnValidSubmit="@AddNewAdult">
     <DataAnnotationsValidator/>
     <ValidationSummary/>
     <div class="form-group">First name: <br/>
@@ -43,9 +42,12 @@
 
 
 @code {
-    public void AddAdult1()
+    public void AddNewAdult()
     {
-     AdultsData.AddAdult(addNewAdultItem);
+        IList<Adult> adults = FileContext.Adults;
+        addNewAdultItem.Id = adults.Count;
+        adults.Add(addNewAdultItem);
+        FileContext.SaveChanges();
         NavigationManager.NavigateTo("/Adults");
     }
 

@@ -4,8 +4,6 @@ using System.IO;
 using System.Text.Json;
 using Models;
 
-namespace FileData
-{
     public class FileContext
     {
         public IList<Family> Families { get; private set; }
@@ -18,11 +16,12 @@ namespace FileData
         {
             Families = File.Exists(familiesFile) ? ReadData<Family>(familiesFile) : new List<Family>();
             Adults = File.Exists(adultsFile) ? ReadData<Adult>(adultsFile) : new List<Adult>();
+            Console.WriteLine(File.Exists(adultsFile));
         }
 
         private IList<T> ReadData<T>(string s)
         {
-            using (var jsonReader = File.OpenText(familiesFile))
+            using (var jsonReader = File.OpenText(s))
             {
                 return JsonSerializer.Deserialize<List<T>>(jsonReader.ReadToEnd());
             }
@@ -51,4 +50,3 @@ namespace FileData
             }
         }
     }
-}
