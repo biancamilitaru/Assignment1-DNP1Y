@@ -16,7 +16,6 @@ using Models;
         {
             Families = File.Exists(familiesFile) ? ReadData<Family>(familiesFile) : new List<Family>();
             Adults = File.Exists(adultsFile) ? ReadData<Adult>(adultsFile) : new List<Adult>();
-            Console.WriteLine(File.Exists(adultsFile));
         }
 
         private IList<T> ReadData<T>(string s)

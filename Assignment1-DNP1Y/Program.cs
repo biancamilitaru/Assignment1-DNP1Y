@@ -13,11 +13,6 @@ namespace Assignment1_DNP1Y
     {
         public static void Main(string[] args)
         {
-            FileContext fileContext = new FileContext();
-            Console.WriteLine("Start printing in the main:");
-            Console.WriteLine(fileContext.Adults.Count);
-            Console.WriteLine(fileContext.Adults[0].FirstName);
-            Console.WriteLine(fileContext.Adults[0].Age);
             CreateHostBuilder(args).Build().Run();
         }
 
