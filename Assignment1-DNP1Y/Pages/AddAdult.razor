@@ -7,7 +7,7 @@
 <h3>Add Adult</h3>
 
 
-<EditForm Model="@addNewAdultItem" OnValidSubmit="@AddAdult1">
+<EditForm Model="@addNewAdultItem" OnValidSubmit="@AddNewAdult">
     <DataAnnotationsValidator/>
     <ValidationSummary/>
     <div class="form-group">First name: <br/>
@@ -42,9 +42,10 @@
 
 
 @code {
-    public void AddAdult1()
+    public void AddNewAdult()
     {
         IList<Adult> adults = FileContext.Adults;
+        addNewAdultItem.Id = adults.Count;
         adults.Add(addNewAdultItem);
         FileContext.SaveChanges();
         NavigationManager.NavigateTo("/Adults");

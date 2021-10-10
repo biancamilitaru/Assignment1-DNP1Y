@@ -211,17 +211,17 @@
   },
   {
     "JobTitle": {
-      "JobTitle": "Call Center Agent",
-      "Salary": 20308
+      "JobTitle": "student",
+      "Salary": 0
     },
     "Id": 14,
-    "FirstName": "Isiah",
-    "LastName": "Esparza",
-    "HairColor": "Brown",
-    "EyeColor": "Brown",
-    "Age": 44,
-    "Weight": 81.8,
-    "Height": 172,
-    "Sex": "M"
+    "FirstName": "Bianca",
+    "LastName": "Militaru",
+    "HairColor": "blonde",
+    "EyeColor": "black",
+    "Age": 20,
+    "Weight": 42,
+    "Height": 154,
+    "Sex": "F"
   }
 ]
