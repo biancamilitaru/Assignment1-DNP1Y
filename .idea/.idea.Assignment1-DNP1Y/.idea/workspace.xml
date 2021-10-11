@@ -8,7 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae82e564-038c-449f-848b-48884560b093" name="Changes" comment="" />
+    <list default="true" id="ae82e564-038c-449f-848b-48884560b093" name="Changes" comment=".gitignore update" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -100,6 +100,7 @@
       <workItem from="1633875906312" duration="1129000" />
       <workItem from="1633957990238" duration="79000" />
       <workItem from="1633958175218" duration="39000" />
+      <workItem from="1633958492922" duration="302000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1632733468866</created>
@@ -199,7 +200,28 @@
       <option name="project" value="LOCAL" />
       <updated>1633958205921</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary=".gitignore update">
+      <created>1633958603586</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1633958603586</updated>
+    </task>
+    <task id="LOCAL-00016" summary=".gitignore update">
+      <created>1633958684570</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1633958684570</updated>
+    </task>
+    <task id="LOCAL-00017" summary=".gitignore update">
+      <created>1633958784695</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1633958784695</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,6 +255,7 @@
     <MESSAGE value="Testing with Troles" />
     <MESSAGE value="Troles fixed it" />
     <MESSAGE value="Final version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Final version" />
+    <MESSAGE value=".gitignore update" />
+    <option name="LAST_COMMIT_MESSAGE" value=".gitignore update" />
   </component>
 </project>
