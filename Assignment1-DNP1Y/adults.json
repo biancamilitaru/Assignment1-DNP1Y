@@ -208,20 +208,5 @@
     "Weight": 55.4,
     "Height": 171,
     "Sex": "M"
-  },
-  {
-    "JobTitle": {
-      "JobTitle": "student",
-      "Salary": 0
-    },
-    "Id": 14,
-    "FirstName": "Bianca",
-    "LastName": "Militaru",
-    "HairColor": "blonde",
-    "EyeColor": "black",
-    "Age": 20,
-    "Weight": 42,
-    "Height": 154,
-    "Sex": "F"
   }
 ]
