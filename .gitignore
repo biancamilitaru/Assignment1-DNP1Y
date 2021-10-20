@@ -4,6 +4,7 @@
 /Assignment2-DNP1Y/obj/
 /Assignment2-DNP1Y/bin/
 /Assignment2-DNP1Y/.idea/
+*obj
 .idea
 *.iml
 out
