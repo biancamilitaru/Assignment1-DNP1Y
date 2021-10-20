@@ -1,10 +1,6 @@
-/Assignment1-DNP1Y/obj/
-/Assignment1-DNP1Y/bin/
 /Assignment1-DNP1Y/.idea/
-/Assignment2-DNP1Y/bin/
-/Assignment1-DNP1Y/Assignment2-DNP1Y/obj
-/Assignment2-DNP1Y/.idea/
-*obj
+obj/
+bin/
 .idea
 *.iml
 out
