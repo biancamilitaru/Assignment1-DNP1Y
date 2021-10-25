@@ -35,13 +35,13 @@ namespace Assignment1_DNP1Y
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<FileContext>();
-            services.AddScoped<IUserInterface, InMemoryUserService>();
             services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
             services.AddAuthorization(options =>
             {
                
                 options.AddPolicy("MustBeVIA", a => a.RequireAuthenticatedUser().RequireClaim("Domain","via.dk"));
             });
+            services.AddScoped<>()
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

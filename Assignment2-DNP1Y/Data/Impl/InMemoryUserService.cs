@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Models;
 
 namespace Assignment1_DNP1Y.Data.Impl
@@ -27,22 +28,16 @@ namespace Assignment1_DNP1Y.Data.Impl
                 }
             }.ToList();
         }
-        
-        
-        public User ValidateUser(string userName, string password)
+
+        public async Task<User> GetUserAsync(string username)
         {
-            User first = users.FirstOrDefault(user => user.UserName.Equals(userName));
-            if (first == null)
+            foreach (User user in users)
             {
-                throw new Exception("User not found");
+                if (user.UserName.Equals(username))
+                    return user;
             }
 
-            if (!first.Password.Equals(password))
-            {
-                throw new Exception("Incorrect password");
-            }
-
-            return first;
+            return null;
         }
     }
 }
