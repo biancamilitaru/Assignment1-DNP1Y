@@ -4,9 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Assignment2_DNP1Y.Persistence;
 using Models;
 
+namespace Assignment2_DNP1Y.Persistence
+{
     public class FileContext : IFileContext
     {
         private IList<Adult> Adults;
@@ -66,3 +67,4 @@ using Models;
             }
         }
     }
+}

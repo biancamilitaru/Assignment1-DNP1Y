@@ -1,9 +1,11 @@
+using System.Threading.Tasks;
 using Models;
 
 namespace Assignment1_DNP1Y.Authentication
 {
     public interface IUserService
     {
-        User ValidateUser(User user);
+        Task<User> ValidateUser(string userName, string password);
+        Task<User> GetUser(string username);
     }
 }

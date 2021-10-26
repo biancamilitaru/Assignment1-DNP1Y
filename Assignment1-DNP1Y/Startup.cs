@@ -6,7 +6,6 @@ using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Assignment1_DNP1Y.Authentication;
 using Assignment1_DNP1Y.Data;
-using Assignment1_DNP1Y.Data.Impl;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -34,14 +33,14 @@ namespace Assignment1_DNP1Y
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<FileContext>();
             services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
+            services.AddScoped<IUserService, UserService>();
             services.AddAuthorization(options =>
             {
                
                 options.AddPolicy("MustBeVIA", a => a.RequireAuthenticatedUser().RequireClaim("Domain","via.dk"));
             });
-            services.AddScoped<>()
+            services.AddScoped<IAdultServices, AdultServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

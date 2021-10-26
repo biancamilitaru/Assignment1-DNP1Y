@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Assignment1_DNP1Y.Data;
 using Assignment1_DNP1Y.Data.Impl;
+using Assignment2_DNP1Y.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,6 +35,7 @@ namespace Assignment2_DNP1Y
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "Assignment2_DNP1Y", Version = "v1"});
             });
             services.AddScoped<IUserInterface, InMemoryUserService>();
+            services.AddScoped<IFileContext, FileContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
