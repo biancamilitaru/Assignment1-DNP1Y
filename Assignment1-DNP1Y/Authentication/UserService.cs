@@ -9,7 +9,7 @@ namespace Assignment1_DNP1Y.Authentication
     public class UserService : IUserService
 
     {
-        private string uri = "https://localhoast:5001/User";
+        private string uri = "https://localhoat:5003/User";
         private User user;
 
         public UserService()
