@@ -26,13 +26,14 @@ namespace Assignment1_DNP1Y.Authentication
         public override async Task<AuthenticationState> GetAuthenticationStateAsync()
         {
             var identity = new ClaimsIdentity();
+            
             if (cachedUser == null)
             {
                 string userAsJson = await jsRuntime.InvokeAsync<string>("sessionStorage.getItem", "currentUser");
                 if (!string.IsNullOrEmpty(userAsJson))
                 {
                     User tmp = JsonSerializer.Deserialize<User>(userAsJson);
-                    ValidateLogin(tmp.UserName, tmp.Password);
+                    await ValidateLogin(tmp.UserName, tmp.Password);
                 }
             }
             else
@@ -55,8 +56,8 @@ namespace Assignment1_DNP1Y.Authentication
             {
                 User user = await userService.ValidateUser(username, password);
                 identity = SetupClaimsForUser(user);
-                string serialisedData = JsonSerializer.Serialize(user);
-                jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", serialisedData);
+                string serialisedData = JsonSerializer.Serialize(user); 
+                await jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", serialisedData);
                 cachedUser = user;
             }
             catch (Exception e)
