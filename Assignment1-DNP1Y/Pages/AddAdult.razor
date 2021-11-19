@@ -1,7 +1,7 @@
 ﻿@page "/AddAdult"
 @attribute [Authorize(Policy = "MustBeVIA")]
 @using Microsoft.AspNetCore.Components
-@using Models
+@using Entities;
 @using Data
 @inject IAdultServices AdultService
 @inject NavigationManager NavigationManager
@@ -36,7 +36,7 @@
         <InputText @bind-Value="addNewAdultItem.Sex"/>
     </div>
     <div class="form-group">Job title: <br/>
-        <InputText @bind-Value="addNewAdultItem.JobTitle.JobTitle"/>
+        <InputText @bind-Value="addNewAdultItem.Job.Title"/>
     </div>
     <p class="actions"><button class="btn btn-outline-dark" type="submit">Create</button></p>
 </EditForm>
@@ -51,6 +51,6 @@
 
     private Adult addNewAdultItem = new Adult
     {
-        JobTitle = new Job()
+        Job = new Job()
     };
 }

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Assignment2_DNP1Y.Persistence;
+using Entities;
 using Microsoft.AspNetCore.Mvc;
-using Models;
 
 namespace Assignment2_DNP1Y.Controllers
 {

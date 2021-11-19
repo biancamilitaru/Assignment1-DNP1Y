@@ -1,5 +1,5 @@
 @page "/Adults"
-@using Models
+@using Entities;
 @using Assignment1_DNP1Y.Data
 @inject IAdultServices adultServices
 
@@ -44,7 +44,7 @@ else
             <td>@item.Id</td>
             <td>@item.FirstName</td>
             <td>@item.LastName</td>
-            <td>@(item.JobTitle == null? "unemployed" : item.JobTitle.JobTitle )</td>
+            <td>@(item.Job== null? "unemployed" : item.Job.Title )</td>
             <td>@item.HairColor</td>
             <td>@item.EyeColor</td>
             <td>@item.Age</td>

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Models {
+namespace Entities {
 public class Child : Person {
     
     public List<Interest> Interests { get; set; }

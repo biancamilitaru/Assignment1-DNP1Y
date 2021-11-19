@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Models;
+using Entities;
 
 namespace Assignment1_DNP1Y
 {
@@ -37,7 +37,6 @@ namespace Assignment1_DNP1Y
             services.AddScoped<IUserService, UserService>();
             services.AddAuthorization(options =>
             {
-               
                 options.AddPolicy("MustBeVIA", a => a.RequireAuthenticatedUser().RequireClaim("Domain","via.dk"));
             });
             services.AddScoped<IAdultServices, AdultServices>();

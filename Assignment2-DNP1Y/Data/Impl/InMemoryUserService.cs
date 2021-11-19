@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Models;
+using Entities;
 
 namespace Assignment1_DNP1Y.Data.Impl
 {

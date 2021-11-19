@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Assignment1_DNP1Y.Data;
+using Entities;
 using Microsoft.AspNetCore.Mvc;
-using Models;
 
 namespace Assignment2_DNP1Y.Controllers
 {

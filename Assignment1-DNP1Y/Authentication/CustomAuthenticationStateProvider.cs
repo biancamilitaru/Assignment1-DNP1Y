@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Assignment1_DNP1Y.Data;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.JSInterop;
-using Models;
+using Entities;
 
 namespace Assignment1_DNP1Y.Authentication
 {
