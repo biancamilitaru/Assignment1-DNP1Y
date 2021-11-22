@@ -4,6 +4,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Entities {
 public class Adult : Person {
     [Required]
-    public Job Job { get; set; }
+    public Job JobTitle { get; set; }
 }
 }
