@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Entities {
 public abstract class Person {
     
-    [Key, MaxLength(7)]
+    [Key]
     public int Id { get; set; }
     [Required, MaxLength(20)]
     public string FirstName { get; set; }

@@ -3,14 +3,16 @@ using System;
 using Assignment2_DNP1Y.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Assignment2_DNP1Y.Migrations
 {
     [DbContext(typeof(AdultDbContext))]
-    partial class AdultDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211122083400_NewMigration")]
+    partial class NewMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

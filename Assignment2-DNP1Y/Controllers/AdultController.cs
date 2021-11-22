@@ -2,9 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Assignment1_DNP1Y.Data.Adults;
+using Assignment2_DNP1Y.DataAccess;
 using Assignment2_DNP1Y.Persistence;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Assignment2_DNP1Y.Controllers
 {
@@ -12,11 +15,11 @@ namespace Assignment2_DNP1Y.Controllers
     [Route("[controller]")]
     public class AdultController : ControllerBase
     {
-        private IFileContext iFileContext;
+        private IAdultsServices adultsServices;
 
-        public AdultController(IFileContext iFileContext)
+        public AdultController()
         {
-            this.iFileContext = iFileContext;
+            adultsServices = new AdultServices();
         }
 
         [HttpGet]
@@ -24,7 +27,7 @@ namespace Assignment2_DNP1Y.Controllers
         {
             try
             {
-                IList<Adult> adults = await iFileContext.GetAdultsAsync();
+                IList<Adult> adults = await adultsServices.GetAdultsAsync();
                 if (name != null)
                 {
                     adults = adults.Where(t => t.FirstName.ToLower().StartsWith(name.ToLower())
@@ -45,7 +48,7 @@ namespace Assignment2_DNP1Y.Controllers
         {
             try
             {
-                Adult adultAdded = await iFileContext.AddAdultAsync(adult);
+                Adult adultAdded = await adultsServices.AddAdultAsync(adult);
                 return Created($"/{adultAdded.Id}", adultAdded);
             }
             catch (Exception e)
@@ -54,6 +57,5 @@ namespace Assignment2_DNP1Y.Controllers
                 return StatusCode(500, e.Message);
             }
         }
-
     }
 }
